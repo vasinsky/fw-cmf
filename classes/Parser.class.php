@@ -1,4 +1,11 @@
-<?php           
+<?php   
+    /**
+     * Класс парсера контента
+     * @author Vasinsky Igor
+     * @email igor.vasinsky@gmail.com
+     * @copyright 2013
+     */
+     
     class Parser{ 
         /**
          * string адрес страницы донора
