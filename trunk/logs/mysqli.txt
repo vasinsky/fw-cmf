@@ -1,0 +1,6 @@
+20/01/2014 13:55:22
+/?mode=admin&route=editgalery&glid=218
+->http://fw.local/?mode=admin&route=editgalery&glid=218
+Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.76 Safari/537.36
+127.0.0.1
+insert into gimages (glid, pic, thumb, giname,gidescription) values ('218', 'uploads/images/galery/218/pic/34a9260414fcd4accbdbb755673aa9c30a3d5f64.jpg', 'uploads/images/galery/218/thumb/34a9260414fcd4accbdbb755673aa9c30a3d5f64.jpg', ' ', ' '),('218', 'uploads/images/galery/218/pic/a2bbd64cfdb6f0ef111c2bf5159268510fb4c37f.jpg', 'uploads/images/galery/218/thumb/a2bbd64cfdb6f0ef111c2bf5159268510fb4c37f.jpg', ' ', ' '),('218', 'uploads/images/galery/218/pic/5a50a9eadf95c4e5c0f12da344aa8a925ffcc22b.jpg', 'uploads/images/galery/218/thumb/5a50a9eadf95c4e5c0f12da344aa8a925ffcc22b.jpg', ' ', ' ')--->>>Commands out of sync; you can't run this command now
