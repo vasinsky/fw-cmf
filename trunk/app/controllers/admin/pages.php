@@ -2,6 +2,16 @@
   class PagesController extends BaseController{
       public function __construct(){
           parent::__construct();
+          
+          RulesUrl::addRules('pages',array(
+                                          'updateAccess',
+                                          'deletepage'
+                                           )
+          );
+          
+          
+          
+          //echo '<pre>' . print_r($_GET, 1) . '</pre>';
       }
 
       public function getListSections(){
