@@ -1,14 +1,19 @@
+<script type="text/javascript">
+   function setView(link){
+       var date = new Date( new Date().getTime() + 3600*24*1000 );
+       document.cookie="display="+link.id+"; path=/; expires="+date.toUTCString();
+       location.href=window.location.pathname;
+       return false;
+   }
+   
+
+</script> 
+<a href="#" onclick="setView(this)" id="grid" class="grid_list">табличный вид</a> 
+<a href="#" onclick="setView(this)" id="list" class="grid_list">линейный вид</a> 
+
+
 <?php
-
-    /**
-     * Корневая директория домена
-     */ 
-    define('DIR',$_SERVER['DOCUMENT_ROOT']);
-
-  $p = pathinfo(__FILE__);
-  
-  echo '<pre>' . print_r($p, 1) . '</pre>';
-  
+  echo '<pre>' . print_r($_COOKIE, 1) . '</pre>';
   exit;
   include "classes/Upload.class.php";
   include "classes/Images.class.php";
