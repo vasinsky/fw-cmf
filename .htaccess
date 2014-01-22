@@ -3,11 +3,12 @@ Options +FollowSymLinks
 Options -Indexes
 
 DirectoryIndex index.php
-#RewriteEngine On
-#RewriteBase /
-#RewriteCond %{REQUEST_FILENAME} !-f
-#RewriteCond %{REQUEST_FILENAME} !-d
-#RewriteRule ^.*$ index.php?$1[NQCL]
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?q=$1 [L,QSA]
 
 #"400 Bad Request", 
 ErrorDocument  400 /app/tpls/errorpages/400.php 

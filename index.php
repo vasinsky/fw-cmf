@@ -8,7 +8,6 @@
     session_start();
     set_time_limit(0);
     //Класс таблиц http://phpforum.ru/index.php?showtopic=19919&hl=
-
     /**
      *  Основной файл конфигурации
      */ 
@@ -26,6 +25,8 @@
     /**
      * ЧПУ url, восстановление GET параметров
      */ 
+
+
     $furl = parse_url($_SERVER['REQUEST_URI']);
 	$url =  explode("/",$furl['path']);
 
@@ -91,4 +92,5 @@
       * Очистка хранилища данных
       */ 
       Bufer::clear();
+      echo '<pre>' . print_r($_GET, 1) . '</pre>';
 ?>    
