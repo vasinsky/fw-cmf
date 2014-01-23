@@ -9,8 +9,6 @@
 </head>
 
 <ul>
- <li><a href="<?=Route::getUrl('?sections=main&page=index');?>">Главная</a></li>
- <li><a href="<?=Route::getUrl('?sections=main&page=about');?>">О нас</a></li>
- <li><a href="<?=Route::getUrl('?sections=main&page=contacts');?>">Контакты</a></li>
- <li><a href="<?=Route::getUrl('?sections=blog&page=history');?>">История</a></li>
+ <li><a href="<?=Route::getUrl('?sections=pages&page=index');?>">Главная</a></li>
+ <li><a href="<?=Route::getUrl('?sections=blog&page=blogpage1');?>">Блог</a></li>
 </ul>

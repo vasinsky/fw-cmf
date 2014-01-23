@@ -17,25 +17,31 @@
           if(self::REWRITE === true){
              $this_url = $url;
              $this_url = explode("?", $this_url);
-
+              
              if(!isset($this_url[1]))
                  return $this_url[0];
              else{
                 $this_url = explode("&", $this_url[1]);
                 $rewrite_url = array();
                 
-                foreach($this_url as $k=>$v){
+                foreach($this_url as $k=>$v){                    
                     $temp_this_url = explode("=",$v);
-                    $rewrite_url[] = $temp_this_url[0];
+                    
+                    if(!in_array($k, array(0,1)))
+                        $rewrite_url[] = $temp_this_url[0];
+                    
                     $rewrite_url[] = $temp_this_url[1];
                 }
+                
+                
+                
                 return $scheme.'://'.$_SERVER['HTTP_HOST'].'/'.implode("/",$rewrite_url);
              }
              
              return $this_url[1];
           } 
           else
-            return $url;
+            return '/'.$url;
       }  
       
       static public function status404(){

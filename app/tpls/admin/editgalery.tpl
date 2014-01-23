@@ -29,12 +29,12 @@
               <tr>
                <td width="250px" valign="top">
                  <h3>Обложка альбома</h3>
-                
+
                  <?php if(isset($data['meta']['image']) && $data['meta']['image'] != null) :?>
                    
-                   <?php if(@file_exists($data['meta']['image'])):?>
+                   <?php if(file_exists($data['meta']['image'])):?>
                    
-                  <img class="circle" width="420px" src="<?=$data['meta']['image'];?>"/>
+                  <img class="circle" width="420px" src="/<?=$data['meta']['image'];?>"/>
                   
                   <?php else:?>
                   
@@ -95,10 +95,9 @@
                 
                  <?=($i['pic'] == $data['meta']['image']) ? '<b><code>О Б Л О Ж К А</code></b>' : null;?>
                
-                 <a href="<?=$i['pic'];?>" data-lightbox="image-<?=$i['giid'];?>" 
+                 <a href="/<?=$i['pic'];?>" data-lightbox="image-<?=$i['giid'];?>" 
                  title="<b><?=$i['giname'];?></b><br/><?=$i['gidescription'];?>">
-                 <img class="circle" src="<?=$i['thumb'];?>" border="0"/>
-                 </a>
+                 <img class="circle" src="/<?=$i['thumb'];?>" border="0"/></a>
                 
                 <br/>
                  <center>

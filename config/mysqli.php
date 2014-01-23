@@ -7,7 +7,7 @@
      */          
     define('MYSQLI_HOST', 'localhost');                 
     define('MYSQLI_USER', 'root');
-    define('MYSQLI_PASS', '');
+    define('MYSQLI_PASS', '672847');
     define('MYSQLI_DB', 'fw');
     define('MYSQLI_CHARSET', 'utf8');                 
           

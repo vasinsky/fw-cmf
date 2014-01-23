@@ -8,14 +8,14 @@
     /**
      * Определение констант, часто используемых в GET url
      */ 
+    RulesUrl::getRules();
+     
     define('CUR_PAGE', isset($_GET['page']) ? ((int)$_GET['page']<=1 ? 1 : (int)$_GET['page']) : 1);
     define('MODE', isset($_GET['mode']) ? $_GET['mode'] : 'public');
-    define('SECTION', isset($_GET['section']) ? $_GET['section'] : 'main');
+    define('SECTION', isset($_GET['section']) ? $_GET['section'] : 'pages');
 
     define('MESSAGE_ACCESS_DENIED', 'У вас нет доступа к данному разделу сайта!
              Вернитесь на <a href="/'.PATH.'">главную страницу</a>');
-     
-
      
     if(MODE == 'public'){
         define('ROUTE', isset($_GET['route']) ? $_GET['route'] : 'index');

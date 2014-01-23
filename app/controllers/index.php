@@ -1,7 +1,10 @@
-<?php
+<?php 
  class IndexController extends BaseController{
     public function __construct(){
         parent::__construct();
+      
+        RulesUrl::addRules('public',array('sections','page'));        
+        
     }
     
     public function getPageData($route){
