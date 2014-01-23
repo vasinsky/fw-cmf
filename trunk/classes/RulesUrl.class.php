@@ -1,38 +1,45 @@
 <?php
    class RulesUrl{
-      static $dataRules = array();
+      static public $dataRules=array();
       
-      static function addRules($route,$rules){
-         self::$dataRules = $rules;
+      static function addRules($mode,$route){
+         self::$dataRules['mode']  = $mode;
+         self::$dataRules['route'] = $route; 
+         self::setRules($mode, $route);
       }
       
       static function getRules(){
-         return self::$dataRules;
+          foreach($_GET as $m=>$r){
+             if(in_array($m, array('public', 'admin'))){
+                 self::setRules($m, $r);
+                 unset($_GET[$m]);
+             }
+          }
       }
       
-      static function setRules($mode){
-           $get = explode("/",mb_substr($_SERVER['REQUEST_URI'],1));
-           echo '<pre>' . print_r($get, 1) . '</pre>';
-           foreach($get as $k=>$v){
-             if($k == 0)
-                $_GET['mode'] =  $v;
-             elseif($k == 1)
-                $_GET['route'] = $v;  
-             else{
-                
-             }  
-             
-             var_dump(self::$dataRules[$_GET['route']]);  
-             //echo $v.'<br/>';
-             //if(!is_array(self::$dataRules[$mode])){
-                //$_GET[$v] = self::$dataRules[$mode][$k];
-                //echo '<pre>' . print_r(self::$dataRules[$mode], 1) . '</pre>';
-             
-             //}
+      static function setRules($mode, $route){
+           $get = explode("/",mb_substr($_SERVER['REQUEST_URI'],1));  
+           $rules = self::$dataRules;
+
+           if($mode == 'admin'){
+               $_GET['mode'] =  isset(self::$dataRules['mode']) ? self::$dataRules['mode'] : $mode;
+               $_GET['route'] =  isset(self::$dataRules['route']) ? self::$dataRules['route'] : $route; 
+               
+               foreach($get as $k=>$value){
+                   if($k>1){
+                       if($k%2 == 0)
+                           $_GET[$value] = $get[$k+1];
+                   }
+               }
            }
-           
-          //echo '<pre>' . print_r($_GET, 1) . '</pre>';
+           elseif($mode == 'public'){
+              foreach($get as $k=>$v){
+                    $_GET[$rules['route'][$k]] = $v;
+              }
+           }
       }
       
    }
+   
+   
 ?>

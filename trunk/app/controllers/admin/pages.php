@@ -3,15 +3,9 @@
       public function __construct(){
           parent::__construct();
           
-          RulesUrl::addRules('pages',array(
-                                          'updateAccess',
-                                          'deletepage'
-                                           )
-          );
+          $this->setModel('Pages');
           
-          
-          
-          //echo '<pre>' . print_r($_GET, 1) . '</pre>';
+          RulesUrl::addRules('amdin','pages');
       }
 
       public function getListSections(){
@@ -58,8 +52,6 @@
   }
   
   $controller = new PagesController;
-  $controller->setModel('Pages');
-  $model = $controller->model;
   
   if(isset($_GET['deletepage'])){
      $delete = $controller->deletePage((int)$_GET['deletepage']);

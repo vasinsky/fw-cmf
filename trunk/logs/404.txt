@@ -1,5 +1,5 @@
-22/01/2014 18:28:47
-/mode/admin/route/pages
+23/01/2014 13:38:46
+/?route=blog&page=blogpage1
 ->no
 Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.76 Safari/537.36
 127.0.0.1
