@@ -15,7 +15,7 @@
 <link rel="stylesheet" type="text/css" href="/<?=PATH;?>app/css/admin_style_not_rename.css">
 
 <link rel="stylesheet" href="/<?=PATH;?>app/js/colorpicker/css/colorpicker.css" type="text/css" />
-<script src="<?=PATH;?>app/js/colorpicker/js/colorpicker.js"></script>
+<script src="/<?=PATH;?>app/js/colorpicker/js/colorpicker.js"></script>
 
 <script type="text/javascript" src="/<?=PATH;?>app/js/lightbox/js/modernizr.custom.js"></script>
 <script type="text/javascript" src="/<?=PATH;?>app/js/lightbox/js/lightbox-2.6.min.js"></script>
