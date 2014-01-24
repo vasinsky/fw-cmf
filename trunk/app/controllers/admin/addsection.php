@@ -2,6 +2,7 @@
   class AddsectionController extends BaseController{
       public function __construct(){
           parent::__construct();
+          $this->setModel('Addsection');
       }
 
      public function renderForm(){
@@ -82,8 +83,6 @@
   }
   
   $controller = new AddsectionController;
-  $controller->setModel('Addsection');
-  $model = $controller->model;
   $controller->renderForm();
   
   $controller->view(ADMIN_TPLS_DIR.'/header.tpl');

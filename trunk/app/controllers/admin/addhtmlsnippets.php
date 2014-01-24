@@ -2,6 +2,7 @@
   class AddhtmlsnippetsController extends BaseController{
       public function __construct(){
           parent::__construct();
+          $this->setModel('Addhtmlsnippets');
       }
       
       public function renderForm(){
@@ -85,7 +86,6 @@
   }
   
   $controller = new AddhtmlsnippetsController;
-  $controller->setModel('Addhtmlsnippets');
   $controller->renderForm();
   
   $controller->view(ADMIN_TPLS_DIR.'/header.tpl');

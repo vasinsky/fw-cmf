@@ -2,6 +2,7 @@
   class EdithtmlsnippetsController extends BaseController{
       public function __construct(){
           parent::__construct();
+          $this->setModel('Edithtmlsnippets');
       }
       public function getDataHtmlSnippet($hsid){
          $hsid = isset($_GET['hsid']) ? (int)$_GET['hsid'] : 0;
@@ -106,7 +107,6 @@
   }
   
   $controller = new EdithtmlsnippetsController;
-  $controller->setModel('Edithtmlsnippets');
   $controller->renderForm();
   
   $controller->view(ADMIN_TPLS_DIR.'/header.tpl');

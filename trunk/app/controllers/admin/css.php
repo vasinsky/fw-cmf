@@ -3,6 +3,7 @@
     
       public function __construct(){
           parent::__construct();
+          $this->setModel('Css');
       }
       
       public function getListCss(){
@@ -35,8 +36,7 @@
   }
   
   $controller = new CssController;
-  $controller->setModel('Css');
-  $model = $controller->model;
+  
   
   $path = DIR.'/'.PATH.'app/css/';
   

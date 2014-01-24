@@ -2,6 +2,7 @@
   class UploadsController extends BaseController{
       public function __construct(){
           parent::__construct();
+          $this->setModel('Uploads');
       }
       public function getsubdir(){
             $dir = glob(PATH.'uploads/multi/*');
@@ -16,9 +17,7 @@
   }
   
   $controller = new UploadsController;
-  $controller->setModel('Uploads');
-  $model = $controller->model;
-
+  
   $controller->view(ADMIN_TPLS_DIR.'/header.tpl');
   $controller->view(ADMIN_TPLS_DIR.'/uploads.tpl');
   $controller->view(ADMIN_TPLS_DIR.'/footer.tpl'); 

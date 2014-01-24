@@ -2,10 +2,8 @@
   class PagesController extends BaseController{
       public function __construct(){
           parent::__construct();
-          
-          $this->setModel('Pages');
-          
-          RulesUrl::addRules('amdin','pages');
+          $this->setModel('Pages'); 
+          //RulesUrl::addRules('amdin','pages');
       }
 
       public function getListSections(){

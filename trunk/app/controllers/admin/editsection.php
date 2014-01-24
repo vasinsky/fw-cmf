@@ -2,6 +2,7 @@
   class EditsectionController extends BaseController{
       public function __construct(){
           parent::__construct();
+          $this->setModel('Editsection');
       }
 
      public function renderForm(){
@@ -102,8 +103,6 @@
   }
   
   $controller = new EditsectionController;
-  $controller->setModel('Editsection');
-  $model = $controller->model;
   $controller->renderForm();
   
   $controller->view(ADMIN_TPLS_DIR.'/header.tpl');

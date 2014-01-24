@@ -2,6 +2,7 @@
   class HtmlsnippetsController extends BaseController{
       public function __construct(){
           parent::__construct();
+          $this->setModel('Htmlsnippets');
       }
       
       public function getHtmlSnippets(){
@@ -30,8 +31,6 @@
   }
   
   $controller = new HtmlsnippetsController;
-  $controller->setModel('Htmlsnippets');
-  $model = $controller->model;
   
   Bufer::set(array('HtmlSnippetsList'=>$controller->getHtmlSnippets()));
   

@@ -2,6 +2,7 @@
   class DeletedpagesController extends BaseController{
       public function __construct(){
           parent::__construct();
+          $this->setModel('Deletedpages');
       }
 
       public function getListSections(){
@@ -36,13 +37,10 @@
          /**
           * Список страниц
           */ 
-         $result = $model->getPaginateData("select * 
-                                            from pages p
-                                            left join section s on p.sid = s.sid where p.display = 3 order by p.sid , pid DESC
-                                            ", 25,CUR_PAGE);
+         $result = $model->getListPages();
+         
          if(count($result)>0){
              $listPages = $result;
-             //$listPages['paginate'] = isset($result['paginate']) ? $result['paginate'] : false;
          }
          else{
             $listPages = null;
@@ -65,8 +63,6 @@
   }
   
   $controller = new DeletedpagesController;
-  $controller->setModel('Deletedpages');
-  $model = $controller->model;
   
   if(isset($_GET['killpage'])){
      $delete = $controller->killPage((int)$_GET['killpage']);

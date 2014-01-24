@@ -2,6 +2,7 @@
   class AddgaleryController extends BaseController{
       public function __construct(){
           parent::__construct();
+          $this->setModel('Addgalery');
       }
       
       public function renderForm(){
@@ -240,7 +241,6 @@
                 $settings_upload = $this->getSettingsUploads();
                 $bufer = Bufer::getData();
                 
-
                  //Ошибок нет, создадим строку в БД
                  if(!isset($bufer['errors']))               
                     $gid = $this->addGaleryToDb(); 
@@ -269,7 +269,6 @@
                       'gindex'=>$this->model->escape($_POST['sinonim_galery']),
                       'gdescription'=>$this->model->escape($_POST['gdescription']),
                       'image'=>null
-         
          );
          
          $result = $this->model->addGalery($data);
@@ -551,7 +550,6 @@
   }
   
   $controller = new AddgaleryController;
-  $controller->setModel('Addgalery');
   $controller->renderForm();
   
   $controller->view(ADMIN_TPLS_DIR.'/header.tpl');

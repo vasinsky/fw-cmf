@@ -2,6 +2,7 @@
   class AddpageController extends BaseController{
      public function __construct(){
         parent::__construct();
+        $this->setModel('Addpage');
      }
      
      public function renderForm(){
@@ -146,8 +147,6 @@
   }
   
   $controller = new AddpageController;
-  $controller->setModel('Addpage');
-  $model = $controller->model;
   $controller->renderForm();
   
   $controller->view(ADMIN_TPLS_DIR.'/header.tpl');
