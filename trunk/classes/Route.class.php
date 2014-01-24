@@ -13,6 +13,12 @@
         
       } 
       
+      static public function logout(){
+          unset($_SESSION['fw']);
+          session_destroy();
+          Route::go('/');        
+      }
+      
       static public function getUrl($url,$scheme = 'http'){
           if(self::REWRITE === true){
              $this_url = $url;
