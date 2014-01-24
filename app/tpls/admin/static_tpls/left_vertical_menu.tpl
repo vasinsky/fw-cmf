@@ -5,6 +5,8 @@
   <div class="panel-body">
     <i class="fa fa-user"></i>&nbsp;&nbsp;<a href="<?=Route::getUrl('?mode=admin&route=groupsusers')?>">Группы пользователей</a>
     <hr/>     
+    <span class="glyphicon glyphicon-user"></span></i>&nbsp;&nbsp;<a href="<?=ROUTE::getUrl('?mode=admin&route=users')?>">Пользователи</a>
+    <hr/>      
     <!--
     <i class="fa fa-comment"></i>&nbsp;&nbsp;<a href="<?=Route::getUrl('?mode=admin&route=comments')?>">Комментарии</a>
     <hr>

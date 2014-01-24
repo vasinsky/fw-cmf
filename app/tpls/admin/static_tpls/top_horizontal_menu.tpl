@@ -7,10 +7,6 @@
   </div>
  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
-      <li <?=(ROUTE=='users') ? 'class="active"' : '';?>>
-        <a href="<?=ROUTE::getUrl('?mode=admin&route=users')?>">
-        <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Пользователи</a>
-      </li>  
       <li <?=(in_array(ROUTE,array('pages','sections','deletedpages'))) ? 'class="active"' : '';?> class="dropdown">
         
        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -44,7 +40,7 @@
       </li>   
 
       <li>
-        <a href="<?=ROUTE::getUrl('?mode=admin&logout=true')?>">
+        <a href="<?=ROUTE::getUrl('?mode=admin&route=action&logout=true')?>">
         <span class="glyphicon glyphicon-log-out"></span>&nbsp;&nbsp;Выйти</a>
       </li>       
          
