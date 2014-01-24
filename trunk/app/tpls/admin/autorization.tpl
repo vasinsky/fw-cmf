@@ -11,12 +11,6 @@
       </div>
       
     <div class="modal-body">
-
-        <table>
-         <tr>
-          <td><img src="/images/lock.jpg" align="left"/> </td>
-          <td>
-        
         <?php if(isset($errors) && !empty($errors)) :?>
         
          <div class="alert alert-danger fade in"> 
@@ -32,6 +26,12 @@
          </ul>
          </div>
         <?php endif;?>
+        <table>
+         <tr>
+          <td><img src="/images/lock.jpg" align="left"/> </td>
+          <td>
+        
+
         
         <div class="form-group">
          <label for="login">Логин</label>
@@ -41,7 +41,24 @@
          <label for="password">Пароль</label>
          <?=$formAutorize['password'];?>
         </div>   
-        
+      
+        <div class="form-group">
+        <label for="capcha">Защитный код</label><br />
+        <center>
+          
+           <?=Capcha::getImageCapcha();?><br />
+           <?=Capcha::getReloadLink();?><br />
+       </center> 
+
+
+            <?=$formAutorize['capcha'];?>
+
+         
+         
+        </div>        
+         
+         
+         
          </td>
          </tr>
         </table>        

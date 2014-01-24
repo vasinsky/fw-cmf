@@ -4,6 +4,12 @@ body{
     background-color: #F5F5F5;
     margin-top:-50px;
 }
+small.copy{
+    color:#CECECE;
+}
+small.copy:hover{
+    color:gray;
+}
 div.acontent{
   padding: 15px;
   width: 82%;
