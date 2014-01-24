@@ -35,6 +35,7 @@
            elseif($mode == 'public'){
               $count = count($get);
               foreach($get as $k=>$v){
+                    if(isset($rules['route'][$k]))
                     $_GET[$rules['route'][$k]] = ($k == ($count-1)) ? strtr($v, array('.html'=>'')) : $v;
               }
            }
