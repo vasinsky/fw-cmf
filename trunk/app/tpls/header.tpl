@@ -11,4 +11,5 @@
 <ul>
  <li><a href="<?=Route::getUrl('?sections=pages&page=index');?>.html">Главная</a></li>
  <li><a href="<?=Route::getUrl('?sections=blog&page=blogpage1');?>.html">Блог</a></li>
+ <li><a href="/?mode=admin">administrate</a></li>
 </ul>
