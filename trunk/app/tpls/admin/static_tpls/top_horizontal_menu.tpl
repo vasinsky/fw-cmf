@@ -3,7 +3,7 @@
 <!-- navbar-fixed-top-->
 <nav class="navbar navbar-inverse" role="navigation">
   <div class="navbar-header">
-    <a class="navbar-brand" href="<?=ROUTE::getUrl('?mode=admin');?>">Панель управления</a>
+    <a class="navbar-brand" href="<?=ROUTE::getUrl('?mode=admin&route=pages');?>">Панель управления</a>
   </div>
  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
