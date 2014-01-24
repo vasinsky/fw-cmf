@@ -1,5 +1,5 @@
 <?php
-
+  
   class AutorizationController extends BaseController{
       public function __construct(){
           parent::__construct();
@@ -23,7 +23,17 @@
                ->setAttr('class|form-control input-lg')
                ->setRules('trim|notempty')
                ->setErrorText('Введите пароль')
-               ->addInput();  
+               ->addInput(); 
+               
+          $form->setInput('capcha')
+               ->setAttr('type|text')
+               ->setAttr('class|form-control input-lg')
+               ->setAttr('id|captcha-form')
+               ->setRules('code[captcha]')  
+               ->setErrorText('Не верно введён защитный код')
+               ->addInput(); 
+                              
+                
           $form->setInput('enter')
                ->setAttr('type|submit')
                ->setAttr('class|btn btn-primary btn-lg')
@@ -84,7 +94,6 @@
   $controller->view(ADMIN_TPLS_DIR.'/header.tpl');
   $controller->view(ADMIN_TPLS_DIR.'/autorization.tpl');
   $controller->view(ADMIN_TPLS_DIR.'/footer.tpl');
-  
    
   
 ?>
