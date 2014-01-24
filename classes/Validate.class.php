@@ -165,12 +165,17 @@
         }
         
         protected function _code($nameTag, $tv){
-          //  if(!isset($_SESSION[$tv])) return;
-            
-            if($_SESSION[$tv] != $_REQUEST[$nameTag])
-                $this->errors[$nameTag]['code'] = isset($this->errorData[$nameTag]) ? $this->errorData[$nameTag] :  $this->text_error['code']; 
-            else
-                $this->insertData($nameTag);        
+           if(!isset($_REQUEST[$nameTag])){
+               $this->errors[$nameTag]['code'] = 'В форме отсутствует поле: '.$nameTag;
+           }
+           else{
+              if($_SESSION[$tv] != $_REQUEST[$nameTag])
+                  $this->errors[$nameTag]['code'] = isset($this->errorData[$nameTag]) 
+                  ? $this->errorData[$nameTag] 
+                  :  $this->text_error['code']; 
+              else
+                  $this->insertData($nameTag);        
+           }
         }
         
         private function parseRules($target){
