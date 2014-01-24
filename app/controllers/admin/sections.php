@@ -2,6 +2,7 @@
   class SectionsController extends BaseController{
       public function __construct(){
           parent::__construct();
+          $this->setModel('Sections');
       }
       
       public function getSectionsList(){
@@ -24,7 +25,6 @@
   }
   
   $controller = new SectionsController;
-  $controller->setModel('Sections');
   
   Bufer::set(
             array(

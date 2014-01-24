@@ -2,6 +2,7 @@
   class EditgaleryController extends BaseController{
       public function __construct(){
           parent::__construct();
+          $this->setModel('Editgalery');
       }
       
       public function getGaleryData($glid){
@@ -595,8 +596,7 @@
   }
   
   $controller = new EditgaleryController;
-  $controller->setModel('Editgalery');
-  
+
   $glid = isset($_GET['glid']) ? (int)$_GET['glid'] : 0;
   
   $getData = $controller->getGaleryData($glid);

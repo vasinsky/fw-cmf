@@ -2,6 +2,7 @@
   class EdituserController extends BaseController{
       public function __construct(){
           parent::__construct();
+          $this->setModel('Edituser');
       }
 
       public function getAccessList(){
@@ -146,9 +147,6 @@
   }
   
   $controller = new EdituserController;
-  $controller->setModel('Edituser');
-  $model = $controller->model;
-  
   $controller->renderForm(); 
   
   

@@ -2,6 +2,7 @@
   class AddmoduleController extends BaseController{
       public function __construct(){
           parent::__construct();
+          $this->setModel('addmodule');
       }
       
       public function renderForm(){
@@ -151,8 +152,6 @@
   }
   
   $controller = new AddmoduleController;
-  $controller->setModel('addmodule');
-  $model = $controller->model;
   $controller->renderForm();
   
   $controller->view(ADMIN_TPLS_DIR.'/header.tpl');

@@ -2,6 +2,7 @@
   class GaleryController extends BaseController{
       public function __construct(){
           parent::__construct();
+          $this->setModel('Galery');
       }
       
       public function getListGalery(){
@@ -71,8 +72,6 @@
   }
   
   $controller = new GaleryController;
-  $controller->setModel('Galery');
-  
   $controller->getListGalery();
   
   if(isset($_GET['deletegalery'])){

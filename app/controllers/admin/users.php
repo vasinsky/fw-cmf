@@ -2,6 +2,7 @@
   class UsersController extends BaseController{
       public function __construct(){
           parent::__construct();
+          $this->setModel('Users');
       }
       
       public function getUserList(){
@@ -28,8 +29,6 @@
   }
   
   $controller = new UsersController;
-  $controller->setModel('Users');
-  $model = $controller->model;
   
    Bufer::set(
             array(

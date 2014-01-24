@@ -2,6 +2,7 @@
   class AddgroupusersController extends BaseController{
       public function __construct(){
           parent::__construct();
+          $this->setModel('Addgroupusers');
       }
       
       public function renderForm(){
@@ -66,7 +67,6 @@
   }
   
   $controller = new AddgroupusersController;
-  $controller->setModel('Addgroupusers');
   $model = $controller->model;
   
   $controller->renderForm();

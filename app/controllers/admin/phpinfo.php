@@ -2,6 +2,7 @@
   class PhpinfoController extends BaseController{
       public function __construct(){
           parent::__construct();
+          $this->setModel('Phpinfo');
       }
       
       public function getPHPinfo(){
@@ -10,8 +11,7 @@
   }
   
   $controller = new PhpinfoController;
-  $controller->setModel('Phpinfo');
-  
+
   Bufer::set(array('data'=>$controller->getPHPinfo()));
   
   if(!$controller->getPHPinfo()){

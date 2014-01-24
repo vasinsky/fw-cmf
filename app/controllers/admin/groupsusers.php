@@ -2,6 +2,7 @@
   class GroupsusersController extends BaseController{
       public function __construct(){
           parent::__construct();
+          $this->setModel('Groupsusers');
       }
       
       public function getGroupsUsersList(){
@@ -17,8 +18,6 @@
   }
   
   $controller = new GroupsusersController;
-  $controller->setModel('Groupsusers');
-  $model = $controller->model;
   
   $acid = isset($_GET['deletegroupusers']) ? (int)$_GET['deletegroupusers'] : false;
   

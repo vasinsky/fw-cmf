@@ -2,6 +2,7 @@
   class EditpageController extends BaseController{
       public function __construct(){
           parent::__construct();
+          $this->setModel('Editpage');
       }
      
      public function getPage($pid){
@@ -199,8 +200,6 @@
   }
   
   $controller = new EditpageController;
-  $controller->setModel('Editpage');
-  $model = $controller->model;
   $controller->renderForm();
   
   $controller->view(ADMIN_TPLS_DIR.'/header.tpl');

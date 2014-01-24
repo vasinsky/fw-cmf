@@ -2,6 +2,7 @@
   class EditgroupusersController extends BaseController{
       public function __construct(){
           parent::__construct();
+          $this->setModel('Editgroupusers');
       }
       
       public function renderForm(){
@@ -77,10 +78,7 @@
       }
   }
   
-  $controller = new EditgroupusersController;
-  $controller->setModel('Editgroupusers');
-  $model = $controller->model;
-  
+  $controller = new EditgroupusersController; 
   $controller->renderForm();
   
   $bufer = Bufer::getData();

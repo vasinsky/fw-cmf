@@ -3,6 +3,7 @@
   class AutorizationController extends BaseController{
       public function __construct(){
           parent::__construct();
+          $this->setModel('Autorization');
       }
       /**
        * Создание и  валидация формы
@@ -78,7 +79,6 @@
   }
   
   $controller = new AutorizationController;
-  $controller->setModel('Autorization');
   $controller->renderForm();
   
   $controller->view(ADMIN_TPLS_DIR.'/header.tpl');
