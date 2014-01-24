@@ -8,7 +8,9 @@
   */
   class Route{
       const REWRITE = REWRITE;
-    
+      const POSTFIX = POSTFIX;
+      const MODE = MODE;
+      
       public function __construct(){
         
       } 
@@ -17,6 +19,10 @@
           unset($_SESSION['fw']);
           session_destroy();
           Route::go('/');        
+      }
+      
+      static function postfix(){
+         return (self::POSTFIX === true) ? '.html' : '';
       }
       
       static public function getUrl($url,$scheme = 'http'){
@@ -39,9 +45,11 @@
                     $rewrite_url[] = $temp_this_url[1];
                 }
                 
-                
-                
-                return $scheme.'://'.$_SERVER['HTTP_HOST'].'/'.implode("/",$rewrite_url);
+                if(preg_match("#admin/#ius",implode("/",$rewrite_url))){
+                   return $scheme.'://'.$_SERVER['HTTP_HOST'].'/'.implode("/",$rewrite_url);
+                }
+                else
+                   return $scheme.'://'.$_SERVER['HTTP_HOST'].'/'.implode("/",$rewrite_url).Route::postfix();
              }
              
              return $this_url[1];
