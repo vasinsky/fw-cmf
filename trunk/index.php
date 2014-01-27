@@ -47,7 +47,7 @@
     $_SESSION['fw'][INDEX_SESSION_ADMIN] = isset($_SESSION['fw'][INDEX_SESSION_ADMIN]) 
                                            ? $_SESSION['fw'][INDEX_SESSION_ADMIN] 
                                            : false;                                    
-                                                                               
+                                                                        
     /**
      * Автозагрузка классов из папки classes
      * Остальные классы подгружаются в файле config/route.php
@@ -62,10 +62,8 @@
     /**
      * Выход из админки 
      */ 
-    if(isset($_GET['logout']) && $_GET['logout'] == 'true'){
-        unset($_SESSION['fw']);
-        session_destroy();
-        header("location:".Route::getUrl('?mode=admin'));
+    if(isset($_GET['logout'])){
+        Route::logout();
     }     
     
      /**
