@@ -69,6 +69,10 @@
           $file_tpl_model = DIR.'/'.PATH.'app/createmodule/model.tpl';
           $file_tpl_templte = DIR.'/'.PATH.'app/createmodule/template.tpl';
           
+          $file_public_tpl_controller = DIR.'/'.PATH.'app/createmodule/public/controller.tpl';
+          $file_public_tpl_model = DIR.'/'.PATH.'app/createmodule/public/model.tpl';
+          $file_public_tpl_templte = DIR.'/'.PATH.'app/createmodule/public/template.tpl';
+          
           if(!file_exists($file_tpl_templte) or !is_readable($file_tpl_templte)){
                $errors[] = 'Не могу найти или прочитать файл шаблона *.tpl нового модуля';
           }
@@ -88,27 +92,31 @@
              $mode = $module['mode'];
              $namefilemodule = strtolower($module['name']);
              $nameclassmodule = ucfirst(strtolower($module['name']));
-
-             $tpl = file_get_contents($file_tpl_templte);
-             $controller = file_get_contents($file_tpl_controller);
-             $model = file_get_contents($file_tpl_model);
-             
-             $tpl = strtr($tpl,array('{namemodule}'=>$nameclassmodule));
-             $controller = strtr($controller,array('{namemodule}'=>$nameclassmodule,'{tpl}'=>$namefilemodule));
-             $model = strtr($model,array('{namemodule}'=>$nameclassmodule));
- 
-             switch ($module['mode']){
+    
+              switch ($module['mode']){
                 case 1:  //public module
                     $dir_tpls = TPLS_DIR;
                     $dir_controllers = CONTROLLERS_DIR;
                     $dir_models = MODELS_DIR;
+                    $tpl = file_get_contents($file_public_tpl_templte);
+                    $controller = file_get_contents($file_public_tpl_controller);
+                    $model = file_get_contents($file_public_tpl_model);                      
                     break;
                 case 2:  //admin module
                     $dir_tpls =  ADMIN_TPLS_DIR; 
                     $dir_controllers =  ADMIN_CONTROLLERS_DIR;
                     $dir_models = ADMIN_MODELS_DIR;
+                    $tpl = file_get_contents($file_tpl_templte);
+                    $controller = file_get_contents($file_tpl_controller);
+                    $model = file_get_contents($file_tpl_model);                    
                     break;                                  
-             }
+             }   
+    
+             $tpl = strtr($tpl,array('{namemodule}'=>$nameclassmodule));
+             $controller = strtr($controller,array('{namemodule}'=>$nameclassmodule,'{tpl}'=>$namefilemodule));
+             $model = strtr($model,array('{namemodule}'=>$nameclassmodule));
+ 
+
              
             if(file_exists($dir_tpls.'/'.$namefilemodule.'.tpl')) 
                 $errors[] = 'Шаблон с таким именем уже найден';
@@ -144,7 +152,7 @@
                      );
             }
             else{
-                header("location: ".Route::getUrl('?mode=admin&route=addmodule'));
+                Route::go('?mode=admin&route=addmodule');
             }
         }
           

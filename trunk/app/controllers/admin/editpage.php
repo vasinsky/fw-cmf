@@ -166,7 +166,7 @@
               $result =  $this->savePage($data, $formEditpage);
               
               if(!isset($savePage['errors'])){
-                  header("location:".Route::getUrl('?mode=admin&route=editpage&pid='.$data['pid']));     
+                  Route::go('?mode=admin&route=editpage&pid='.$data['pid']);     
               }
               else{
                   Bufer::set(array(

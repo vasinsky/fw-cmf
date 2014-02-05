@@ -141,7 +141,7 @@
                Bufer::add(array('errors'=>array('Произошла ошибка при создании страницы')));             
            } 
            else{
-               header('location: '.Route::getUrl('?mode=admin&route=pages'));  
+               Route::go('?mode=admin&route=pages');  
            }
      }
   }
