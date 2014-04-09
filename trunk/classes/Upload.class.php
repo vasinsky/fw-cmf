@@ -59,11 +59,15 @@
          */  
         static public function getFiles(){
              if(empty($_FILES)){
+                
                return false;
              }
              else{
                 foreach($_FILES[self::$index]['name'] as $key=>$name){
                     $pathinfo = pathinfo($name);
+                    
+                    
+                    
                     if($pathinfo['basename'] !=''){
                         $filename = $pathinfo['filename'];
                         $ext = $pathinfo['extension'];
@@ -113,6 +117,7 @@
                     return self::getFiles();
                 }
                 else{
+                    
                     foreach(self::getFiles() as $k=>$v){
                        if(!empty($v['error'])){
                            if($returnOnlyValidFiles = 1)
@@ -146,11 +151,17 @@
          * 
          * @return array/bool
          */ 
-        public static function uploadFiles($validate_files, $dir, $rename=false){
+        public static function uploadFiles($validate_files, $dir, $rename=false, $prefix=false){
 
             if(!is_array($validate_files)){
                 return false;
             }
+            
+            if($prefix !== false){
+                $validate_files = self::setPrefix($validate_files, $prefix);
+            }
+            
+            
             
             $files['valid'] = array();
             $files['error'] = array();
@@ -179,6 +190,29 @@
             
             return isset($files) ? $files : false;
         }
+        
+        /**
+         *  Метод модификации имени файла - добавление префикса
+         *  @param array
+         *  @param string
+         *  return array
+         */ 
+         public function setPrefix($files, $prefix){
+              foreach($files as $k=>$f){
+                  $mod_files[] = array(
+                                     'name'=>$prefix.'_'.$f['name'],
+                                     'ext'=>$f['ext'],
+                                     'type'=>$f['type'],
+                                     'hashname'=>$f['hashname'],
+                                     'tmpname'=>$f['tmpname'],
+                                     'error'=>$f['error'],
+                                     'size'=>$f['size'],
+                                        
+                                     );
+              }
+            
+             return $mod_files;
+         }
         
         /**
          * Удаление файла из директории

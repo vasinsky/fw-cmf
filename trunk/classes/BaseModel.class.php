@@ -25,7 +25,7 @@
          */ 
          public function sqlQuery($sql){
             $result = $this->mysqli->query($sql);
-
+ 
             if(!$result){
               Files::addtolog(LOG_MYSQLI, $sql.'--->>>'.$this->mysqli->error);
               
@@ -35,6 +35,24 @@
                 return $result;
             }      
          }
+         
+        /**
+         *  Мульти запрос в БД
+         *  @param string - sql запрос
+         */ 
+         public function sqlMultyQuery($sql){
+            $result = $this->mysqli->multi_query($sql);
+            
+            if(!$result){
+              Files::addtolog(LOG_MYSQLI, $sql.'--->>>'.$this->mysqli->error);
+              
+              throw new Exception($this->mysqli->error);
+            }            
+            else{
+                while($this->mysqli->next_result()) $this->mysqli->store_result($linkId);
+                return $result;
+            }      
+         }         
         
         /**
          * Возвращает ассоц масив по sql запросу
@@ -197,5 +215,32 @@
         public function last_id(){
             return $this->mysqli->insert_id;
         }
+        
+        /**
+         * Возвращает данные страницы из таблицы pages указывая name
+         * @param string - sql запрос
+         */ 
+        public function returnPageData($name){
+            $sql = "select * from pages where name = '".$this->escape($name)."' LIMIT 1";
+            
+            $result = $this->mysqli->query($sql);
+
+            if(!$result){
+              Files::addtolog(LOG_MYSQLI, $sql.'--->>>'.$this->mysqli->error);
+              
+              throw new Exception($this->mysqli->error);
+            }            
+            else{
+                if($result->num_rows>0){
+                    while($row = $result->fetch_assoc()){
+                        $data[] = $row;
+                    }
+                    return $data;
+                }    
+                else{
+                    return false;
+                }
+            }    
+        }        
     }
 ?>

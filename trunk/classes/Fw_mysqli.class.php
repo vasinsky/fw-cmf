@@ -31,6 +31,7 @@
         public static function escape($data){
             return Fw_mysqli::connect()->real_escape_string($data);
         }
-
+        
+        
     }
 ?>

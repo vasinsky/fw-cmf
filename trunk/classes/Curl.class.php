@@ -24,12 +24,9 @@
             $options[CURLOPT_CONNECTTIMEOUT] = 20;
             
             curl_setopt_array($curl, $options);
-            $out = iconv('windows-1251', 'utf-8', curl_exec($curl));
+            $out =curl_exec($curl);
     
             $info = curl_getinfo($curl);
-    
-            if($info['http_code'] != 200)
-               return 200;
     
             curl_close($curl); 
             

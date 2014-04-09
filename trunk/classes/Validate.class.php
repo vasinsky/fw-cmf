@@ -73,8 +73,12 @@
         }
         
         protected function _empty($nameTag){
+            $_REQUEST[$nameTag] = trim($_REQUEST[$nameTag]);
+            
             if(empty($_REQUEST[$nameTag]))
-                $this->errors[$nameTag]['notempty'] = isset($this->errorData[$nameTag]) ? $this->errorData[$nameTag] :  $this->text_error['notempty'];   
+                $this->errors[$nameTag]['notempty'] = isset($this->errorData[$nameTag]) 
+                                                      ? $this->errorData[$nameTag] 
+                                                      :  $this->text_error['notempty'];   
             else
                 $this->insertData($nameTag);              
         }
@@ -89,6 +93,11 @@
     
         protected function _float($nameTag){
             $_REQUEST[$nameTag] = (float)$_REQUEST[$nameTag];
+            $this->insertData($nameTag);  
+        }    
+ 
+        protected function _int($nameTag){
+            $_REQUEST[$nameTag] = (int)$_REQUEST[$nameTag];
             $this->insertData($nameTag);  
         }    
     
@@ -230,7 +239,7 @@
                                 $this->_id($nameTag);
                             break; 
                         case 'float' :
-                                $this->_int($nameTag);
+                                $this->_float($nameTag);
                             break; 
                         case 'string' :
                                 $this->_int($nameTag);
