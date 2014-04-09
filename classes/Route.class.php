@@ -83,5 +83,31 @@
          self::noAnchor($url);
          return self::getUrl($url);
       }
+      
+      static function getPageContent($name){
+         $model = new BaseModel;
+         $result = $model->returnPageData($name);
+
+         if($result === false)
+             return 'ERROR DATA CONTENT';
+         else
+             return $result[0]['content']; 
+      }
+      
+      static function getPageMeta($name){
+         $model = new BaseModel;
+         $result = $model->returnPageData($name);
+
+         if($result === false)
+             return 'ERROR DATA META';
+         else{
+             $meta = array(
+                            'title'=>$result[0]['title'],
+                            'keywords'=>$result[0]['keywords'],
+                            'description'=>$result[0]['description']
+             );
+             return $meta; 
+         }
+      }      
   }
 ?>
